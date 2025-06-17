@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "ASQL_dboSalesLoad",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
