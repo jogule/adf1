@@ -1,0 +1,23 @@
+{
+	"name": "ABS_JSON_HandyCandy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stjgl926",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter3"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "00816cd4-0d98-4505-8b8f-8b3ba08aab31.json",
+				"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/HandyCandy",
+				"container": "sampledata"
+			}
+		},
+		"schema": {}
+	}
+}
