@@ -33,4 +33,13 @@ resource "azurerm_data_factory" "data_factory" {
   name                = "adf-${local.sufix}"
   location            = local.location
   resource_group_name = azurerm_resource_group.resource_group.name
+
+  github_configuration {
+    account_name       = "jogule"
+    branch_name        = "main"
+    git_url            = "https://github.com"
+    publishing_enabled = true
+    repository_name    = "adf1"
+    root_folder        = "/"
+  }
 }
