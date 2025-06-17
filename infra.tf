@@ -21,6 +21,11 @@ resource "azurerm_resource_group" "adf_rg" {
   location = local.location
 }
 
+resource "azurerm_resource_group" "sql_rg" {
+  name     = local.sql_rg
+  location = local.location
+}
+
 # Key Vault for storing SQL password
 resource "azurerm_key_vault" "key_vault" {
   name                      = "kv-${local.sufix}"
