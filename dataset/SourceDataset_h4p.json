@@ -1,0 +1,22 @@
+{
+	"name": "SourceDataset_h4p",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stjgl926",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Azure-Data-Factory-by-Example-Second-Edition-main.zip",
+				"container": "landing"
+			},
+			"compression": {
+				"type": "ZipDeflate"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
