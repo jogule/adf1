@@ -1,0 +1,23 @@
+{
+	"name": "ABS_JSON_SugarCube",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stjgl926",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter3"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "April.json",
+				"folderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/SugarCube/2020/Q2",
+				"container": "sampledata"
+			}
+		},
+		"schema": {}
+	}
+}
