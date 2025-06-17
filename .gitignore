@@ -35,5 +35,4 @@ terraform.rc
 # Backup files
 *.backup
 
-Azure-Data-Factory-by-Example-Second-Edition-main.zip
 Azure-Data-Factory-by-Example-Second-Edition-main
