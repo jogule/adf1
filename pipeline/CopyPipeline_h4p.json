@@ -44,8 +44,7 @@
 							"type": "AzureBlobStorageWriteSettings"
 						}
 					},
-					"enableStaging": false,
-					"parallelCopies": 4
+					"enableStaging": false
 				},
 				"inputs": [
 					{
