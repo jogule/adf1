@@ -408,6 +408,12 @@
 						"dependencyConditions": [
 							"Succeeded"
 						]
+					},
+					{
+						"activity": "move_to_failed",
+						"dependencyConditions": [
+							"Completed"
+						]
 					}
 				],
 				"policy": {
@@ -495,7 +501,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "customer1DestBinary",
+						"referenceName": "customer1HistoryBinary",
 						"type": "DatasetReference"
 					}
 				]
@@ -516,6 +522,71 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "move_to_failed",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "load_rental_data",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "customer1/current/"
+					},
+					{
+						"name": "Destination",
+						"value": "customer1/history/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": false,
+							"wildcardFolderPath": "current",
+							"wildcardFileName": {
+								"value": "@pipeline().parameters.filename",
+								"type": "Expression"
+							}
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "customer1SourceBinary",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "customer1FailedBinary",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"parameters": {

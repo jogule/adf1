@@ -1,5 +1,5 @@
 {
-	"name": "customer1HistoryBinary",
+	"name": "customer1FailedBinary",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "stjgl926",
@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "history",
+				"folderPath": "failed",
 				"container": "customer1"
 			}
 		}
