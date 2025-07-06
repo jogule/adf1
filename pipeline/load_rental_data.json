@@ -324,6 +324,28 @@
 									"type": "DateTime",
 									"physicalType": "date"
 								}
+							},
+							{
+								"source": {
+									"name": "PipelineRunId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PipelineRunId",
+									"type": "Guid",
+									"physicalType": "uniqueidentifier"
+								}
+							},
+							{
+								"source": {
+									"name": "SourceFileName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SourceFileName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
 							}
 						],
 						"typeConversion": true,
