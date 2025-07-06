@@ -167,7 +167,7 @@
 							"Comments": {
 								"type": "String",
 								"value": {
-									"value": "@concat('Pipeline ', pipeline().Pipeline, ' executed in ', pipeline().DataFactory)",
+									"value": "Pipeline @{pipeline().Pipeline} executed in @{pipeline().DataFactory}\n",
 									"type": "Expression"
 								}
 							},
