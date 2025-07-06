@@ -20,7 +20,7 @@
 						"additionalColumns": [
 							{
 								"name": "SourceFileName",
-								"value": "$$FILENAME"
+								"value": "$$FILEPATH"
 							},
 							{
 								"name": "PipelineRunId",
