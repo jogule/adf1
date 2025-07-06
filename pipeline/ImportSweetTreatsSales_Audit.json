@@ -224,6 +224,9 @@
 			"RunSeqNo": {
 				"type": "Integer",
 				"defaultValue": -1
+			},
+			"property_code": {
+				"type": "String"
 			}
 		},
 		"folder": {
