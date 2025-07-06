@@ -1,0 +1,120 @@
+{
+	"name": "rental_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "doboshco"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "property_code",
+				"type": "varchar"
+			},
+			{
+				"name": "unit",
+				"type": "varchar"
+			},
+			{
+				"name": "tenant_code",
+				"type": "varchar"
+			},
+			{
+				"name": "tenant",
+				"type": "varchar"
+			},
+			{
+				"name": "market_rent",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "actual_rent",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "total_rent",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "total_concessions",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "net_effective_rent",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "total_lease_value",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "tenant_status",
+				"type": "varchar"
+			},
+			{
+				"name": "application_date",
+				"type": "date"
+			},
+			{
+				"name": "lease_sign_date",
+				"type": "date"
+			},
+			{
+				"name": "lease_from",
+				"type": "date"
+			},
+			{
+				"name": "lease_to",
+				"type": "date"
+			},
+			{
+				"name": "notice_date",
+				"type": "date"
+			},
+			{
+				"name": "move_in",
+				"type": "date"
+			},
+			{
+				"name": "move_out",
+				"type": "date"
+			},
+			{
+				"name": "reason_for_move_out",
+				"type": "varchar"
+			},
+			{
+				"name": "application_approved",
+				"type": "date"
+			},
+			{
+				"name": "application_canceled",
+				"type": "date"
+			},
+			{
+				"name": "application_denied",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "rental_data"
+		}
+	}
+}

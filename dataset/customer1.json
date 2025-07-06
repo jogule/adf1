@@ -1,0 +1,115 @@
+{
+	"name": "customer1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stjgl926",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "doboshco"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "r0500min-customer1-07052025183634.csv",
+				"container": "customer1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Property Code",
+				"type": "String"
+			},
+			{
+				"name": "Unit",
+				"type": "String"
+			},
+			{
+				"name": "Tenant Code",
+				"type": "String"
+			},
+			{
+				"name": "Tenant",
+				"type": "String"
+			},
+			{
+				"name": "Market Rent",
+				"type": "String"
+			},
+			{
+				"name": "Actual Rent",
+				"type": "String"
+			},
+			{
+				"name": "Total Rent",
+				"type": "String"
+			},
+			{
+				"name": "Total Concessions",
+				"type": "String"
+			},
+			{
+				"name": "Net Effective Rent",
+				"type": "String"
+			},
+			{
+				"name": "Total Lease Value",
+				"type": "String"
+			},
+			{
+				"name": "Tenant Status",
+				"type": "String"
+			},
+			{
+				"name": "Application Date",
+				"type": "String"
+			},
+			{
+				"name": "Lease Sign Date",
+				"type": "String"
+			},
+			{
+				"name": "Lease From",
+				"type": "String"
+			},
+			{
+				"name": "Lease To",
+				"type": "String"
+			},
+			{
+				"name": "Notice Date",
+				"type": "String"
+			},
+			{
+				"name": "Move In",
+				"type": "String"
+			},
+			{
+				"name": "Move Out",
+				"type": "String"
+			},
+			{
+				"name": "Reason for Move Out",
+				"type": "String"
+			},
+			{
+				"name": "Application Approved",
+				"type": "String"
+			},
+			{
+				"name": "Application Canceled",
+				"type": "String"
+			},
+			{
+				"name": "Application Denied",
+				"type": "String"
+			}
+		]
+	}
+}
