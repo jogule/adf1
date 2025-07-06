@@ -13,7 +13,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "r0500min-customer1-07052025183634.csv",
+				"fileName": "r0500min-customer1-07062025151308.csv",
+				"folderPath": "current",
 				"container": "customer1"
 			},
 			"columnDelimiter": ",",
