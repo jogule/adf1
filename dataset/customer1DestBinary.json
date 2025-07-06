@@ -5,11 +5,6 @@
 			"referenceName": "stjgl926",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"filename": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "doboshco"
 		},
