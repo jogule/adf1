@@ -400,19 +400,13 @@
 				]
 			},
 			{
-				"name": "clean_source",
+				"name": "clean_source_after_success",
 				"type": "Delete",
 				"dependsOn": [
 					{
 						"activity": "move_to_archive",
 						"dependencyConditions": [
 							"Succeeded"
-						]
-					},
-					{
-						"activity": "move_to_failed",
-						"dependencyConditions": [
-							"Completed"
 						]
 					}
 				],
@@ -587,6 +581,42 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "clean_source_after_fail",
+				"type": "Delete",
+				"dependsOn": [
+					{
+						"activity": "move_to_failed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "customer1SourceBinary",
+						"type": "DatasetReference"
+					},
+					"enableLogging": false,
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": false,
+						"wildcardFileName": {
+							"value": "@pipeline().parameters.filename",
+							"type": "Expression"
+						},
+						"enablePartitionDiscovery": false
+					}
+				}
 			}
 		],
 		"parameters": {
