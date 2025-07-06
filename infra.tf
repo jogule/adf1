@@ -82,3 +82,9 @@ output "datalake_connection_string_secret_name" {
   value       = azurerm_key_vault_secret.datalake_connection_string.name
 }
 
+# Output the Azure Data Factory studio URL
+output "adf_studio_url" {
+  description = "Azure Data Factory studio URL"
+  value       = "https://adf.azure.com/en/home?factory=${azurerm_data_factory.data_factory.name}&subscription=${data.azurerm_client_config.current.subscription_id}&resourceGroup=${azurerm_resource_group.adf_rg.name}"
+}
+
