@@ -5,8 +5,23 @@
 		"factoryName": {
 			"value": "adf-jgl926"
 		},
-		"stjgl926_connectionString": {
+		"AzureSqlDatabase1_password": {
 			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-jgl926.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "sql-jgl926.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "sqldb-jgl926"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"stjgl926_properties_typeProperties_connectionString_secretName": {
+			"value": "datalake-connection-string"
 		},
 		"containerUri": {
 			"value": ""
