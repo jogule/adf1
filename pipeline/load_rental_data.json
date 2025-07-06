@@ -1,0 +1,355 @@
+{
+	"name": "load_rental_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "load_rental_data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "SourceFileName",
+								"value": "$$FILENAME"
+							},
+							{
+								"name": "PipelineRunId",
+								"value": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
+							}
+						],
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Property Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "property_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Unit",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "unit",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tenant Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tenant_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tenant",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tenant",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Market Rent",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "market_rent",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "Actual Rent",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "actual_rent",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "Total Rent",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "total_rent",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "Total Concessions",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "total_concessions",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "Net Effective Rent",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "net_effective_rent",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "Total Lease Value",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "total_lease_value",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
+								}
+							},
+							{
+								"source": {
+									"name": "Tenant Status",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tenant_status",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Application Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "application_date",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Lease Sign Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lease_sign_date",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Lease From",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lease_from",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Lease To",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lease_to",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Notice Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "notice_date",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Move In",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "move_in",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Move Out",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "move_out",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Reason for Move Out",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "reason_for_move_out",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Application Approved",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "application_approved",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Application Canceled",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "application_canceled",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Application Denied",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "application_denied",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "customer1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "rental_data",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "doboshco"
+		},
+		"annotations": []
+	}
+}
