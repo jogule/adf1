@@ -1,0 +1,21 @@
+{
+	"name": "customer1SourceBinary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stjgl926",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "doboshco"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "current",
+				"container": "customer1"
+			}
+		}
+	}
+}
