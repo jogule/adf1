@@ -7,7 +7,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Lookup RunSeqNo",
+						"activity": "Set RunSeqNo",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -32,7 +32,7 @@
 							{
 								"name": "RunSeqNo",
 								"value": {
-									"value": "@activity('Lookup RunSeqNo').output.firstRow.RunSeqNo",
+									"value": "@variables('RunSeqNo')",
 									"type": "Expression"
 								}
 							}
@@ -131,7 +131,7 @@
 						},
 						"RunSeqNo": {
 							"value": {
-								"value": "@activity('Lookup RunSeqNo').output.firstRow.RunSeqNo",
+								"value": "@variables('RunSeqNo')",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -166,7 +166,10 @@
 						"storedProcedureParameters": {
 							"Comments": {
 								"type": "String",
-								"value": null
+								"value": {
+									"value": "@concat('Pipeline ', pipeline().Pipeline, ' executed in ', pipeline().DataFactory)",
+									"type": "Expression"
+								}
 							},
 							"PipelineRunId": {
 								"type": "Guid",
@@ -191,8 +194,38 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "Set RunSeqNo",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Lookup RunSeqNo",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "RunSeqNo",
+					"value": {
+						"value": "@int(activity('Lookup RunSeqNo').output.firstRow.RunSeqNo)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"RunSeqNo": {
+				"type": "Integer",
+				"defaultValue": -1
+			}
+		},
 		"folder": {
 			"name": "Chapter4"
 		},
