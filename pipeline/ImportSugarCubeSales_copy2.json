@@ -1,0 +1,126 @@
+{
+	"name": "ImportSugarCubeSales_copy2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "Azure-Data-Factory-by-Example-Second-Edition-main/SampleData/SugarCube",
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE dbo.Sales_LOAD",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 4,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['Month']"
+								},
+								"sink": {
+									"name": "SalesMonth",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Company']"
+								},
+								"sink": {
+									"name": "Retailer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['Product']"
+								},
+								"sink": {
+									"name": "Product",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['ManufacturerProductCode']"
+								},
+								"sink": {
+									"name": "ManufacturerProductCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['Units']"
+								},
+								"sink": {
+									"name": "UnitsSold",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "['Value']"
+								},
+								"sink": {
+									"name": "SalesValueUSD",
+									"type": "Decimal"
+								}
+							}
+						],
+						"collectionReference": "$['Sales']"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ABS_JSON",
+						"type": "DatasetReference",
+						"parameters": {
+							"Container": "sampledata",
+							"Directory": ".",
+							"File": ".",
+							"LinkedServiceConnectionSecret": "datalake-connection-string"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ASQL_dboSalesLoad",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Chapter5"
+		},
+		"annotations": []
+	}
+}
