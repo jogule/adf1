@@ -1,0 +1,25 @@
+{
+	"name": "AnyBlobStorage",
+	"properties": {
+		"parameters": {
+			"ConnectionSecretName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().ConnectionSecretName",
+					"type": "Expression"
+				}
+			}
+		}
+	}
+}
